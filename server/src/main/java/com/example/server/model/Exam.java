@@ -13,9 +13,15 @@ public interface Exam extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id();
 
-    Integer peopleId();
+    Long peopleId();
 
-    Integer paperId();
+    @ManyToOne
+    People people();
+
+    Long paperId();
+
+    @ManyToOne
+    Paper paper();
 
     LocalDateTime startTime();
 }

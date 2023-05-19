@@ -12,11 +12,23 @@ public interface AnswerRecord extends BaseEntity {
 
     Long questionId();
 
+    @ManyToOne
+    Question question();
+
     Long peopleId();
+
+    @ManyToOne
+    People people();
 
     Long examId();
 
+    @ManyToOne
+    Exam exam();
+
     Long paperId();
+
+    @ManyToOne
+    Paper paper();
 
     String answer();
 }

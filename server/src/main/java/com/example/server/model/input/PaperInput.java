@@ -17,7 +17,7 @@ public class PaperInput implements Input<Paper> {
 
     private String title;
 
-    private Integer expired;
+    private Long expired;
 
 
     @Override

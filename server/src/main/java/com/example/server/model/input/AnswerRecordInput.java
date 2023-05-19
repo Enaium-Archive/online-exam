@@ -14,13 +14,13 @@ public class AnswerRecordInput implements Input<AnswerRecord> {
 
     private Long id;
 
-    private Integer questionId;
+    private Long questionId;
 
-    private Integer peopleId;
+    private Long peopleId;
 
-    private Integer examId;
+    private Long examId;
 
-    private Integer paperId;
+    private Long paperId;
 
 
     @Override

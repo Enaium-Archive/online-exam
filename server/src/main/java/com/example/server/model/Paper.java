@@ -14,5 +14,4 @@ public interface Paper extends BaseEntity {
     String title();
 
     Integer expired();
-
 }

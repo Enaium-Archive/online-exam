@@ -18,9 +18,9 @@ public class ExamInput implements Input<Exam> {
 
     private Long id;
 
-    private Integer peopleId;
+    private Long peopleId;
 
-    private Integer paperId;
+    private Long paperId;
 
     private LocalDateTime startTime;
 

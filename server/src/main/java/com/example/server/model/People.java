@@ -16,5 +16,4 @@ public interface People extends BaseEntity {
     String password();
 
     Integer role();
-
 }

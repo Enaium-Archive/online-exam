@@ -20,7 +20,7 @@ public class PeopleInput implements Input<People> {
 
     private String password;
 
-    private Integer role;
+    private Long role;
 
     @Override
     public People toEntity() {
