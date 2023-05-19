@@ -1,0 +1,7 @@
+PUT http://localhost:8080/sessions/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin1"
+}
