@@ -4,5 +4,5 @@ export interface PaperInput {
     
     readonly id?: number;
     
-    readonly title: string;
+    readonly title?: string;
 }

@@ -22,6 +22,8 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
     implementation("cn.dev33:sa-token-spring-boot3-starter:1.34.0")
+    implementation("cn.dev33:sa-token-dao-redis-jackson:1.34.0")
+    implementation("org.apache.commons:commons-pool2")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.projectlombok:lombok")

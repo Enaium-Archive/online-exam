@@ -5,6 +5,8 @@ export type ApiErrors = {
     },
     "paperController": {
     },
+    "peopleController": {
+    },
     "questionController": {
     },
     "sessionController": {

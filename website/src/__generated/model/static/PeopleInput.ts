@@ -4,7 +4,7 @@ export interface PeopleInput {
     
     readonly password?: string;
     
-    readonly role?: number;
+    readonly roleId?: number;
     
     readonly username?: string;
 }

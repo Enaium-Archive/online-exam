@@ -15,5 +15,8 @@ public interface People extends BaseEntity {
 
     String password();
 
-    Integer role();
+    Integer roleId();
+
+    @ManyToOne
+    Role role();
 }

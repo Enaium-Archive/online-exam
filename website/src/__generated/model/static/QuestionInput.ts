@@ -4,7 +4,7 @@ export interface QuestionInput {
     
     readonly id?: number;
     
-    readonly title: string;
+    readonly title?: string;
     
-    readonly type: QuestionType;
+    readonly type?: QuestionType;
 }

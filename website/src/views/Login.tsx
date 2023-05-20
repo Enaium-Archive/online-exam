@@ -3,8 +3,11 @@ import { NForm, NFormItem, NInput, type FormInst, NButton, useMessage, NCard } f
 import { api } from "@/common/ApiInstance"
 import type { PeopleInput } from "@/__generated/model/static"
 import { useSessionStore } from "@/store"
+import { useRouter } from "vue-router"
 
 export default defineComponent(() => {
+  const router = useRouter()
+
   const message = useMessage()
 
   const form = reactive<PeopleInput>({})
@@ -21,6 +24,7 @@ export default defineComponent(() => {
           sessionStore.id = data.id
           sessionStore.token = data.token
           message.success("登录成功")
+          router.push({ name: "home" })
         })
         .catch((error) => {
           message.error(error)

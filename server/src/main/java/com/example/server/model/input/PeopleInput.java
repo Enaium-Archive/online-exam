@@ -24,7 +24,7 @@ public class PeopleInput implements Input<People> {
     private String password;
 
     @Nullable
-    private Long role;
+    private Long roleId;
 
     @Override
     public People toEntity() {

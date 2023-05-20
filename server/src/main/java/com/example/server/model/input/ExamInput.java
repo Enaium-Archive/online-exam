@@ -7,6 +7,7 @@ import com.example.server.model.Exam;
 import lombok.Data;
 import org.babyfish.jimmer.Input;
 
+import org.jetbrains.annotations.Nullable;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -16,12 +17,16 @@ import org.mapstruct.factory.Mappers;
 public class ExamInput implements Input<Exam> {
     private static final Converter CONVERTER = Mappers.getMapper(Converter.class);
 
+    @Nullable
     private Long id;
 
+    @Nullable
     private Long peopleId;
 
+    @Nullable
     private Long paperId;
 
+    @Nullable
     private LocalDateTime startTime;
 
     @Override
