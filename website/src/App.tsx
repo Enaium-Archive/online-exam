@@ -1,6 +1,15 @@
-import { defineComponent } from 'vue'
+import { NConfigProvider, NMessageProvider, zhCN } from "naive-ui"
+import { defineComponent } from "vue"
 
-import { RouterView } from 'vue-router'
+import { RouterView } from "vue-router"
 export default defineComponent(() => {
-  return () => <RouterView />
+  return () => (
+    <>
+      <NConfigProvider locale={zhCN}>
+        <NMessageProvider>
+          <RouterView />
+        </NMessageProvider>
+      </NConfigProvider>
+    </>
+  )
 })

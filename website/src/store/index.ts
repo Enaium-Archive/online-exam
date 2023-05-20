@@ -9,7 +9,7 @@ export default store
 export const useSessionStore = defineStore("session-store", {
   state: () => ({
     token: null as string | null,
-    id: null as string | null,
+    id: null as number | null,
   }),
   persist: true,
 })
