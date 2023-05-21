@@ -24,7 +24,7 @@ export default defineComponent(() => {
         </NButton>
       )}
 
-      <NButton class="w-32 h-32 text-2xl" type="info">
+      <NButton class="w-32 h-32 text-2xl" type="info" onClick={() => router.push({ name: "paper-list" })}>
         开始考试
       </NButton>
     </div>

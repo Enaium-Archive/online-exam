@@ -10,6 +10,7 @@ export class PeopleController {
     > {
         let _uri = '/people/';
         _uri += encodeURIComponent(options.id);
+        _uri += '/';
         return (await this.executor({uri: _uri, method: 'GET'})) as PeopleDto['PeopleController/DEFAULT_PEOPLE']
     }
 }

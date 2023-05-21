@@ -1,9 +1,13 @@
-import Manager from "@/views/Manager"
+import Manager from "@/layouts/Manager"
 import Home from "@/views/Home"
 import Login from "@/views/Login"
 import QuestionManager from "@/views/QuestionManager"
 import { createRouter, createWebHistory } from "vue-router"
 import PaperManager from "@/views/PaperManager"
+import PaperList from "@/views/PaperList"
+import Student from "@/layouts/Student"
+import ExamList from "@/views/ExamList"
+import Answering from "@/views/Answering"
 
 export default createRouter({
   history: createWebHistory(),
@@ -22,6 +26,7 @@ export default createRouter({
       path: "/exam-manager",
       name: "exam-manager",
       component: <Manager />,
+      redirect: { name: "question-manager" },
       children: [
         {
           path: "question-manager",
@@ -32,6 +37,29 @@ export default createRouter({
           path: "paper-manager",
           name: "paper-manager",
           component: <PaperManager />
+        }
+      ]
+    },
+    {
+      path: "/student",
+      name: "student",
+      component: <Student />,
+      redirect: { name: "paper-list" },
+      children: [
+        {
+          path: "paper-list",
+          name: "paper-list",
+          component: <PaperList />
+        },
+        {
+          path: "exam-list",
+          name: "exam-list",
+          component: <ExamList />
+        },
+        {
+          path: "answering/:examId",
+          name: "answering",
+          component: <Answering />
         }
       ]
     }

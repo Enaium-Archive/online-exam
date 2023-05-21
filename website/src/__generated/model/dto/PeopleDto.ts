@@ -4,7 +4,7 @@ export type PeopleDto = {
         readonly createdTime: string, 
         readonly modifiedTime: string, 
         readonly username: string, 
-        readonly roleId?: number, 
+        readonly roleId: number, 
         readonly role: {
             readonly id: number, 
             readonly name: string

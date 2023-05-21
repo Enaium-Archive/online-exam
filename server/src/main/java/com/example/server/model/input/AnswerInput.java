@@ -1,43 +1,38 @@
 package com.example.server.model.input;
 
-import com.example.server.model.AnswerRecord;
+import com.example.server.model.Answer;
 import lombok.Data;
 import org.babyfish.jimmer.Input;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 @Data
-public class AnswerRecordInput implements Input<AnswerRecord> {
+public class AnswerInput implements Input<Answer> {
     private static final Converter CONVERTER = Mappers.getMapper(Converter.class);
 
-    @Nullable
     private Long id;
 
-    @Nullable
-    private Long questionId;
+    private long questionId;
 
-    @Nullable
-    private Long peopleId;
+    private long peopleId;
 
-    @Nullable
-    private Long examId;
+    private long examId;
 
-    @Nullable
-    private Long paperId;
+    private String answer;
 
 
     @Override
-    public AnswerRecord toEntity() {
+    public Answer toEntity() {
         return CONVERTER.toAnswerRecord(this);
     }
 
     @Mapper
     interface Converter {
         @BeanMapping(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-        AnswerRecord toAnswerRecord(AnswerRecordInput input);
+        Answer toAnswerRecord(AnswerInput input);
     }
 }
 

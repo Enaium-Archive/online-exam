@@ -32,8 +32,6 @@ export default defineComponent(() => {
   const showAddQuestion = ref<PaperDto["DEFAULT"] | null>(null)
   const showRemoveQuestion = ref<PaperDto["DEFAULT"] | null>(null)
 
-  const message = useMessage()
-
   const columns: TableColumn<PaperDto["DEFAULT"]>[] = [
     {
       title: "序号",

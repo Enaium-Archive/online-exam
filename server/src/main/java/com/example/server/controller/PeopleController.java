@@ -21,7 +21,7 @@ public class PeopleController {
             .password(false)
             .role(RoleFetcher.$.name());
 
-    @GetMapping("/people/{id}")
+    @GetMapping("/people/{id}/")
     public @FetchBy("DEFAULT_PEOPLE") People findPeople(@PathVariable Long id) {
         return peopleRepository.findNullable(id, DEFAULT_PEOPLE);
     }

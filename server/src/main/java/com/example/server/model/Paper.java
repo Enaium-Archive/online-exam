@@ -1,5 +1,6 @@
 package com.example.server.model;
 
+import com.example.server.bll.PaperQuestionCountResolver;
 import com.example.server.model.common.BaseEntity;
 import org.babyfish.jimmer.sql.*;
 
@@ -22,4 +23,7 @@ public interface Paper extends BaseEntity {
             joinColumnName = "paper_id",
             inverseJoinColumnName = "question_id")
     List<Question> questions();
+
+    @Transient(PaperQuestionCountResolver.class)
+    long question();
 }

@@ -1,8 +1,10 @@
 import type { Executor } from './';
 
-import { ExamController, PaperController, PeopleController, QuestionController, SessionController } from './services';
+import { AnswerController, ExamController, PaperController, PeopleController, QuestionController, SessionController } from './services';
 
 export class Api {
+    
+    readonly answerController: AnswerController;
     
     readonly examController: ExamController;
     
@@ -15,6 +17,7 @@ export class Api {
     readonly sessionController: SessionController;
     
     constructor(executor: Executor) {
+        this.answerController = new AnswerController(executor);
         this.examController = new ExamController(executor);
         this.paperController = new PaperController(executor);
         this.peopleController = new PeopleController(executor);

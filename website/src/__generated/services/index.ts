@@ -1,3 +1,5 @@
+export { AnswerController } from './AnswerController';
+export type { AnswerControllerOptions } from './AnswerController';
 export { ExamController } from './ExamController';
 export type { ExamControllerOptions } from './ExamController';
 export { PaperController } from './PaperController';
