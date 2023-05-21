@@ -15,20 +15,26 @@ import {
   useMessage,
   NPagination,
   NTimePicker,
-  NInputNumber
+  NInputNumber,
+  NButtonGroup
 } from "naive-ui"
 import type { TableColumn } from "naive-ui/es/data-table/src/interface"
 import { defineComponent, reactive, ref } from "vue"
 import { useImmer as useImmer } from "@/hooks/useImmer"
 import dayjs from "dayjs"
 import PaperForm from "@/components/PaperForm"
+import type { PaperDto } from "@/__generated/model/dto"
+import PaperAddQuestion from "@/components/PaperAddQuestion"
+import PaperRemoveQuestion from "@/components/PaperRemoveQuestion"
 
 export default defineComponent(() => {
   const showPaper = ref<PaperInput | null>(null)
+  const showAddQuestion = ref<PaperDto["DEFAULT"] | null>(null)
+  const showRemoveQuestion = ref<PaperDto["DEFAULT"] | null>(null)
 
   const message = useMessage()
 
-  const columns: TableColumn[] = [
+  const columns: TableColumn<PaperDto["DEFAULT"]>[] = [
     {
       title: "序号",
       key: "id"
@@ -54,9 +60,17 @@ export default defineComponent(() => {
       title: "操作",
       key: "action",
       render: (row) => (
-        <NButton type="primary" size="tiny" onClick={() => (showPaper.value = { ...row })}>
-          修改
-        </NButton>
+        <NButtonGroup>
+          <NButton type="primary" size="tiny" onClick={() => (showPaper.value = { ...row })}>
+            修改
+          </NButton>
+          <NButton type="info" size="tiny" onClick={() => (showAddQuestion.value = row)}>
+            添加题目
+          </NButton>
+          <NButton type="error" size="tiny" onClick={() => (showRemoveQuestion.value = row)}>
+            移除题目
+          </NButton>
+        </NButtonGroup>
       )
     }
   ]
@@ -120,6 +134,12 @@ export default defineComponent(() => {
         </NCard>
         <NModal preset="dialog" show={showPaper.value != null} onClose={() => (showPaper.value = null)}>
           {showPaper.value && <PaperForm paper={showPaper.value} />}
+        </NModal>
+        <NModal preset="card" show={showAddQuestion.value != null} onClose={() => (showAddQuestion.value = null)}>
+          {showAddQuestion.value && <PaperAddQuestion paper={showAddQuestion.value} />}
+        </NModal>
+        <NModal preset="card" show={showRemoveQuestion.value != null} onClose={() => (showRemoveQuestion.value = null)}>
+          {showRemoveQuestion.value && <PaperRemoveQuestion paper={showRemoveQuestion.value} />}
         </NModal>
       </>
     )

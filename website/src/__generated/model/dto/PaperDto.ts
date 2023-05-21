@@ -4,6 +4,7 @@ export type PaperDto = {
         readonly modifiedTime: string, 
         readonly id: number, 
         readonly title: string, 
-        readonly expired?: number
+        readonly expired?: number, 
+        readonly questions: ReadonlyArray<{readonly id: number}>
     }
 }
