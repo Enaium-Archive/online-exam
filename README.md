@@ -68,10 +68,3 @@ src
         │  └─static
         └─services
 ```
-
-## 部分图片
-
-![5719b15a811011a594cc33c7155c694](https://github.com/Enaium/online-exam/assets/32991121/3d0fd03b-18be-4009-b6d6-db5bbb40d605)
-![fa625c5a768f02a701ea0e746afc0e1](https://github.com/Enaium/online-exam/assets/32991121/40f3e3ad-8b2c-47cb-9a3f-03c77ee73f91)
-![c6dfbddb52431878b7373da39666b82](https://github.com/Enaium/online-exam/assets/32991121/f5b51a8f-a302-4884-aabb-f55478320acc)
-![d3837d9703c9e905a01425a232eb546](https://github.com/Enaium/online-exam/assets/32991121/e1024576-71a2-4efe-91e2-ec01c7ff695b)
