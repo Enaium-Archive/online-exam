@@ -1,4 +1,10 @@
 export type AnswerDto = {
+    'QuestionController/ANSWER_FETCHER': {
+        readonly id: number, 
+        readonly answer: string, 
+        readonly state?: boolean, 
+        readonly reason?: string
+    }, 
     'DEFAULT': {
         readonly createdTime: string, 
         readonly modifiedTime: string, 

@@ -18,6 +18,8 @@ export interface Exam {
     
     readonly submitted: boolean;
     
+    readonly marked: boolean;
+    
     readonly startTime: string;
     
     readonly expired: boolean;

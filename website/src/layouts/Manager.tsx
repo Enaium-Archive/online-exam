@@ -10,6 +10,10 @@ const menuOptions: MenuOption[] = [
   {
     label: () => <RouterLink to={{ name: "paper-manager" }}>试卷管理</RouterLink>,
     key: "paper-manager"
+  },
+  {
+    label: () => <RouterLink to={{ name: "exam-manager" }}>考试管理</RouterLink>,
+    key: "exam-manager"
   }
 ]
 

@@ -34,7 +34,9 @@ export default defineComponent(() => {
                 <NListItem key={exam.id}>
                   <div class="flex justify-between items-center">
                     <div>{exam.paper.title}</div>
-                    {exam.submitted ? (
+                    {exam.marked ? (
+                      <NButton type="info">已批改</NButton>
+                    ) : exam.submitted ? (
                       <NButton type="error" ghost disabled>
                         已交卷
                       </NButton>

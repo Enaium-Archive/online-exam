@@ -1,5 +1,5 @@
 import type { QuestionType } from '../enums';
-import type { Paper } from './';
+import type { Answer, Paper } from './';
 
 export interface Question {
     
@@ -14,4 +14,6 @@ export interface Question {
     readonly type: QuestionType;
     
     readonly papers: ReadonlyArray<Paper>;
+    
+    readonly answers: ReadonlyArray<Answer>;
 }

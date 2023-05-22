@@ -8,6 +8,8 @@ import PaperList from "@/views/PaperList"
 import Student from "@/layouts/Student"
 import ExamList from "@/views/ExamList"
 import Answering from "@/views/Answering"
+import ExamManager from "@/views/ExamManager"
+import Marking from "@/views/Marking"
 
 export default createRouter({
   history: createWebHistory(),
@@ -23,8 +25,8 @@ export default createRouter({
       component: <Home />
     },
     {
-      path: "/exam-manager",
-      name: "exam-manager",
+      path: "/manager",
+      name: "manager",
       component: <Manager />,
       redirect: { name: "question-manager" },
       children: [
@@ -37,6 +39,11 @@ export default createRouter({
           path: "paper-manager",
           name: "paper-manager",
           component: <PaperManager />
+        },
+        {
+          path: "exam-manager",
+          name: "exam-manager",
+          component: <ExamManager />
         }
       ]
     },
@@ -62,6 +69,11 @@ export default createRouter({
           component: <Answering />
         }
       ]
+    },
+    {
+      path: "/marking/:examId",
+      name: "marking",
+      component: () => <Marking />
     }
   ]
 })

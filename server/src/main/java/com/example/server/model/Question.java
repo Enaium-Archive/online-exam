@@ -19,4 +19,7 @@ public interface Question extends BaseEntity {
 
     @ManyToMany(mappedBy = "questions")
     List<Paper> papers();
+
+    @OneToMany(mappedBy = "question")
+    List<Answer> answers();
 }

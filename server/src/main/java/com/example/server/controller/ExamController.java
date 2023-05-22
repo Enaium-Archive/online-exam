@@ -1,10 +1,12 @@
 package com.example.server.controller;
 
 import com.example.server.model.*;
+import com.example.server.model.input.ExamInput;
 import com.example.server.repository.ExamRepository;
 import com.example.server.repository.PaperRepository;
 import lombok.AllArgsConstructor;
 import org.babyfish.jimmer.client.FetchBy;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,7 @@ public class ExamController {
     private final PaperRepository paperRepository;
 
     public static final ExamFetcher DEFAULT_EXAM = ExamFetcher.$.allScalarFields().paper(PaperFetcher.$.allScalarFields()).expired();
+    public static final ExamFetcher COMPLETE_EXAM = ExamFetcher.$.allScalarFields().paper(PaperFetcher.$.allScalarFields()).people(PeopleFetcher.$.allScalarFields().password(false)).expired();
 
     /**
      * 查询考试
@@ -32,10 +35,7 @@ public class ExamController {
      * @return 考试列表
      */
     @GetMapping("/people/{peopleId}/exams/")
-    public Page<@FetchBy("DEFAULT_EXAM") Exam> findExams(
-            @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "10") Integer size,
-            @PathVariable Long peopleId) {
+    public Page<@FetchBy("DEFAULT_EXAM") Exam> findExams(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "10") Integer size, @PathVariable Long peopleId) {
         return examRepository.findAllByPeopleId(PageRequest.of(page, size), peopleId, DEFAULT_EXAM);
     }
 
@@ -79,6 +79,11 @@ public class ExamController {
         return exam.paper().questions();
     }
 
+    /**
+     * 提交
+     *
+     * @param examId 试卷ID
+     */
     @PutMapping("/exams/{examId}/submitted/")
     @ResponseStatus(HttpStatus.OK)
     public void submitted(@PathVariable Long examId) {
@@ -86,5 +91,27 @@ public class ExamController {
             draft.setId(examId);
             draft.setSubmitted(true);
         }));
+    }
+
+    /**
+     * 批改
+     *
+     * @param examId 试卷ID
+     */
+    @PutMapping("/exams/{examId}/marked/")
+    @ResponseStatus(HttpStatus.OK)
+    public void marked(@PathVariable Long examId) {
+        examRepository.update(ExamDraft.$.produce(draft -> {
+            draft.setId(examId);
+            draft.setMarked(true);
+        }));
+    }
+
+    @GetMapping("/exams/")
+    public Page<@FetchBy("COMPLETE_EXAM") Exam> findComplexExams(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "10") Integer size,
+            @Nullable ExamInput examInput) {
+        return examRepository.findAllByExam(PageRequest.of(page, size), examInput);
     }
 }

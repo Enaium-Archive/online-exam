@@ -26,6 +26,8 @@ public interface Exam extends BaseEntity {
 
     boolean submitted();
 
+    boolean marked();
+
     LocalDateTime startTime();
 
     @Transient(ExamExpiredResolver.class)
