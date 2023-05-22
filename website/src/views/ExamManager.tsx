@@ -67,7 +67,6 @@ export default defineComponent(() => {
       <NSpin />
     ) : (
       <>
-        <NCard title="搜索"></NCard>
         <NCard title="考试记录">
           <NDataTable columns={columns} data={data.value.content as []} />
           <div class="flex flex-row-reverse mt-5">

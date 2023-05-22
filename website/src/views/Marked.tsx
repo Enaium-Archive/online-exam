@@ -31,7 +31,7 @@ export default defineComponent(() => {
             default: () =>
               data.value.content.map((qa, index) => (
                 <NListItem key={index}>
-                  <div>题目{qa.question.title}</div>
+                  <div>题目:{qa.question.title}</div>
                   {qa.answer ? (
                     <div>
                       <div>答案:{qa.answer.answer}</div>
