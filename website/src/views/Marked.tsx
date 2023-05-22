@@ -35,7 +35,7 @@ export default defineComponent(() => {
                   {qa.answer ? (
                     <div>
                       <div>答案:{qa.answer.answer}</div>
-                      <div>状态:{qa.answer.state}</div>
+                      <div>状态:{qa.answer.state ? "√" : "×"}</div>
                       <div>原因:{qa.answer.reason}</div>
                     </div>
                   ) : (
