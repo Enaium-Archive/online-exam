@@ -37,7 +37,13 @@ export default defineComponent(
         <div>题目:{props.qa.question.title}</div>
         {props.qa.answer ? (
           <>
-            <div>答案:{props.qa.answer.answer}</div>
+            <div>
+              {props.qa.question.type === "JUDGMENT" ? (
+                <div>答案:{props.qa.answer.answer ? "√" : "×"}</div>
+              ) : (
+                <div>答案:{props.qa.answer.answer}</div>
+              )}
+            </div>
             <div>
               <NForm model={form} ref={formRef} labelPlacement="left">
                 <NFormItem label="原因" path="reason">
