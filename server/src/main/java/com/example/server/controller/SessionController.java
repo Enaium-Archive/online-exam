@@ -1,5 +1,6 @@
 package com.example.server.controller;
 
+import cn.dev33.satoken.annotation.SaIgnore;
 import cn.dev33.satoken.stp.StpUtil;
 import com.example.server.model.People;
 import com.example.server.model.input.PeopleInput;
@@ -14,6 +15,7 @@ import java.util.Objects;
 /**
  * 会话控制器
  */
+@SaIgnore
 @RestController
 @AllArgsConstructor
 public class SessionController {

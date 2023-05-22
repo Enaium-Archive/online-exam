@@ -57,7 +57,8 @@ public class QuestionController {
     ) {
         return questionRepository.findAllByQuestion(PageRequest.of(page, size), questionInput);
     }
-    
+
+
     /**
      * 查询试卷答案包括未做的题目
      *
@@ -66,7 +67,6 @@ public class QuestionController {
      * @param examId 考试id
      * @return 问题分页
      */
-    @SaCheckRole(value = {"admin", "teacher"}, mode = SaMode.OR)
     @GetMapping("/exams/{examId}/questions/answers/")
     public Page<QAResponse<@FetchBy("QUESTION_FETCHER") Question, @FetchBy("ANSWER_FETCHER") Answer>> findAnswers(
             @RequestParam(defaultValue = "0") Integer page,

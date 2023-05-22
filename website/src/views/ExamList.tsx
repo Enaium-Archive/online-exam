@@ -35,7 +35,9 @@ export default defineComponent(() => {
                   <div class="flex justify-between items-center">
                     <div>{exam.paper.title}</div>
                     {exam.marked ? (
-                      <NButton type="info">已批改</NButton>
+                      <NButton type="info" onClick={() => router.push({ name: "marked", params: { examId: exam.id } })}>
+                        已批改
+                      </NButton>
                     ) : exam.submitted ? (
                       <NButton type="error" ghost disabled>
                         已交卷

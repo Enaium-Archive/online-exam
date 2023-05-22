@@ -32,7 +32,7 @@ export default defineComponent(() => {
             class="w-256"
             bordered
             v-slots={{
-              header: () => <div>阅卷</div>,
+              header: () => <div class="flex justify-center text-2xl">阅卷</div>,
               default: () =>
                 data.value.content.map((qa, index) => (
                   <NListItem key={index}>

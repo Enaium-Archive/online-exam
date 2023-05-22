@@ -10,6 +10,7 @@ import ExamList from "@/views/ExamList"
 import Answering from "@/views/Answering"
 import ExamManager from "@/views/ExamManager"
 import Marking from "@/views/Marking"
+import Marked from "@/views/Marked"
 
 export default createRouter({
   history: createWebHistory(),
@@ -67,13 +68,18 @@ export default createRouter({
           path: "answering/:examId",
           name: "answering",
           component: <Answering />
+        },
+        {
+          path: "marked/:examId",
+          name: "marked",
+          component: <Marked />
         }
       ]
     },
     {
       path: "/marking/:examId",
       name: "marking",
-      component: () => <Marking />
+      component: <Marking />
     }
   ]
 })
